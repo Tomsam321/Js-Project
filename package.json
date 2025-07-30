@@ -1,0 +1,10 @@
+{
+  "name": "contact-form-main",
+  "version": "1.0.0",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./assets/styles/output.css --minify --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.0.0"
+  }
+}
