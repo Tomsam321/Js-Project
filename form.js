@@ -1,15 +1,11 @@
-
 document.addEventListener('DOMContentLoaded', function () {
   const form = document.getElementById('contact-form');
   const successMsg = document.getElementById('success-message');
-
-  if (!form) return;
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     let valid = true;
 
-    // Validación de campos
     form.querySelectorAll('[data-required]').forEach(input => {
       const error = input.nextElementSibling;
       if (input.value.trim() === '') {
@@ -20,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    // Validación de email
     const email = form.querySelector('input[type="email"]');
     const emailError = email.nextElementSibling;
     if (email.value && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)) {
@@ -31,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function () {
       emailError.classList.add('hidden');
     }
 
-    // Validación de radio
     const radios = form.querySelectorAll('input[name="query-type"]');
     const radioError = document.getElementById('query-type-error');
     if (![...radios].some(r => r.checked)) {
@@ -41,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function () {
       radioError.classList.add('hidden');
     }
 
-    // Validación de consentimiento
     const consent = form.querySelector('input[name="consent"]');
     const consentError = document.getElementById('consent-error');
     if (!consent.checked) {
