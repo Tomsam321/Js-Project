@@ -133,6 +133,7 @@ label {
 
 #general,
 #Support {
+  cursor: pointer;
   font-weight: 540;
   box-sizing: border-box;
   width: 100%;
