@@ -115,8 +115,8 @@ label {
   flex-direction: row;
   padding-inline: 3px;
   gap: 52px;
-  width: 100%; /* 👈 Hace que el input se adapte al ancho */
-  box-sizing: border-box; /* 👈 Para que respete paddings sin salirse */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 @media (max-width: 500px) {
@@ -129,5 +129,5 @@ label {
 
 #general,
 #Support {
-  font-weight: 540
+  font-weight: 540:
 }
