@@ -1,5 +1,6 @@
 body {
   background: hsl(148, 38%, 91%);
+  margin: 2rem;
   min-height: 100vh;
   font-family: 'Karla', Arial, sans-serif;
   display: flex;
@@ -33,15 +34,14 @@ body {
 }
 
 label {
-  font-size: 16px;
-  font-weight: 600;
   margin-bottom: 4px;
 }
 
 .input {
+  margin-top: 7px;
   border: 1px solid hsl(186, 15%, 59%);
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: 10px 8px;
   font-size: 16px;
   outline: none;
   transition: border-color 0.2s;
@@ -108,4 +108,26 @@ label {
 .success-text {
   color: hsl(187, 24%, 22%);
   font-size: 16px;
+}
+
+.Name-section {
+  display: flex;
+  flex-direction: row;
+  padding-inline: 3px;
+  gap: 52px;
+  width: 100%; /* 👈 Hace que el input se adapte al ancho */
+  box-sizing: border-box; /* 👈 Para que respete paddings sin salirse */
+}
+
+@media (max-width: 500px) {
+  .Name-section {
+    flex-direction: column;
+    gap: 20px;
+    padding-inline: 0;
+  }
+}
+
+#general,
+#Support {
+  font-weight: 540
 }
