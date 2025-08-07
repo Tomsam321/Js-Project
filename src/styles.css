@@ -137,6 +137,8 @@ label {
 #general,
 #Support {
   margin-top: 15px;
+  cursor: pointer;
+  font-weight: 540;
   box-sizing: border-box;
   width: 100%;
   cursor: pointer;
