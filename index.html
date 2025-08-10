@@ -19,14 +19,14 @@
     <h1 class="main-title">Contact Us</h1>
     <form id="contact-form" novalidate>
       <section class="Name-section">
-        <div class="form-group">
+        <div>
           <label for="first-name">First Name</label>
-          <input id="f-name" class="input" name="first-name" type="text" data-required class="input" />
+          <input id="f-name" name="first-name" type="text" data-required class="input" />
           <p class="error-message hidden">This field is required</p>
         </div>
-        <div class="form-group">
+        <div>
           <label for="last-name">Last Name</label>
-          <input id="l-name" class="input" name="last-name" type="text" data-required class="input" />
+          <input id="f-name" name="last-name" type="text" data-required class="input" />
           <p class="error-message hidden">This field is required</p>
         </div>
       </section>
@@ -50,7 +50,7 @@
       </div>
       <div class="form-group consent-group">
         <input id="consent" name="consent" type="checkbox" />
-        <label for="consent">I consent to being contacted by the team</label>
+        <label for="consent" id="msg-consent">I consent to being contacted by the team</label>
       </div>
       <p id="consent-error" class="error-message hidden">To submit this form, please consent to being contacted</p>
       <button type="submit" class="submit-btn">Submit</button>
