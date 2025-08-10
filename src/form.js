@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     let valid = true;
 
-    // Validar inputs requeridos
     form.querySelectorAll('[data-required]').forEach(input => {
       const error = input.nextElementSibling;
       const isEmail = input.type === 'email';
@@ -22,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Validar radio
     const radioError = document.getElementById('query-type-error');
     if (!form.querySelector('input[name="query-type"]:checked')) {
       radioError.classList.remove('hidden');
@@ -31,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
       radioError.classList.add('hidden');
     }
 
-    // Validar consentimiento
     const consent = form.querySelector('input[name="consent"]');
     const consentError = document.getElementById('consent-error');
     consentError.classList.toggle('hidden', consent.checked);
