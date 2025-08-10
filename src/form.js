@@ -1,14 +1,20 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('contact-form');
   const successMsg = document.getElementById('success-message');
 
-  form.addEventListener('submit', function (e) {
+  form.addEventListener('submit', e => {
     e.preventDefault();
     let valid = true;
 
+    // Validar inputs requeridos
     form.querySelectorAll('[data-required]').forEach(input => {
       const error = input.nextElementSibling;
-      if (input.value.trim() === '') {
+      const isEmail = input.type === 'email';
+      const empty = input.value.trim() === '';
+      const invalidEmail = isEmail && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(input.value);
+
+      if (empty || invalidEmail) {
+        error.textContent = invalidEmail ? 'Please enter a valid email address' : error.textContent;
         error.classList.remove('hidden');
         valid = false;
       } else {
@@ -16,33 +22,20 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    const email = form.querySelector('input[type="email"]');
-    const emailError = email.nextElementSibling;
-    if (email.value && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)) {
-      emailError.textContent = 'Please enter a valid email address';
-      emailError.classList.remove('hidden');
-      valid = false;
-    } else if (email.value) {
-      emailError.classList.add('hidden');
-    }
-
-    const radios = form.querySelectorAll('input[name="query-type"]');
+    // Validar radio
     const radioError = document.getElementById('query-type-error');
-    if (![...radios].some(r => r.checked)) {
+    if (!form.querySelector('input[name="query-type"]:checked')) {
       radioError.classList.remove('hidden');
       valid = false;
     } else {
       radioError.classList.add('hidden');
     }
 
+    // Validar consentimiento
     const consent = form.querySelector('input[name="consent"]');
     const consentError = document.getElementById('consent-error');
-    if (!consent.checked) {
-      consentError.classList.remove('hidden');
-      valid = false;
-    } else {
-      consentError.classList.add('hidden');
-    }
+    consentError.classList.toggle('hidden', consent.checked);
+    if (!consent.checked) valid = false;
 
     if (valid) {
       form.classList.add('hidden');
@@ -50,4 +43,3 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
-
